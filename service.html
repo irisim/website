@@ -73,8 +73,6 @@
         </header>
         <!-- end header section -->
     </div>
-
-
     <!-- service section -->
     <section class="service_section layout_padding">
         <div class="container">
@@ -90,9 +88,7 @@
                     <a href="https://github.com/irisim" target="_blank">
                         <div class="box">
                             <div class="img-box">
-                                <!---->
-                                <img src="images/GitHub-logo.png" alt="" style="width: 90%; height: auto;"> <!--class="img2" alt="">-->
-                                <!---->
+                                <img src="images/GitHub-logo.png" alt="" style="width: 90%; height: auto;">
                             </div>
                             <div class="detail-box">
                                 <h5>
@@ -106,22 +102,20 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a href="https://github.com/irisim/Image_processing_game" target="_blank">
-                        <div class="box active">
-                            <div class="img-box">
-                                <img src="images/SnowBoard.png" class="img1" alt="" style="width: 90%; height: auto;">
-                            </div>
-                            <div class="detail-box">
-                                <h5>
-                                    Computer Vision <br />
-                                    SnowBoarding Game
-                                </h5>
-                                <p>
-                                    Coming soon
-                                </p>
-                            </div>
+                    <div class="box" onclick="handleBoxClick(event, 'snowboard-video', 'https://github.com/irisim/Image_processing_game')">
+                        <div class="img-box">
+                            <video controls style="width: 100%; height: auto;" id="snowboard-video">
+                                <source src="gallery/snowboard party video.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
-                    </a>
+                        <div class="detail-box">
+                            <h5>
+                                Computer Vision <br />
+                                SnowBoarding Game
+                            </h5>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <a href="https://github.com/irisim/Deep-Q-Network-Learning-to-Play-Cart-Pole" target="_blank">
@@ -141,17 +135,37 @@
                     </a>
                 </div>
                 <div class="col-md-4">
+                    <div class="box">
+                        <div class="img-box">
+                            <video controls style="width: 80%; height: auto;" id="breakout-video">
+                                <source src="gallery/Atari.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="detail-box" onclick="handleBoxClick(event, 'breakout-video', 'https://github.com/irisim/AI-Playing-Atari-Game-BreakOut')">
+                            <h5>
+                                <br /><br /><br />
+                                AI Playing BreakOut <br />
+                            </h5>
+                            <p>
+                                Recreating C51 - Categorical DQN success
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
                     <div class="box ">
                         <div class="img-box">
                             <img src="images/paper.png" class="img1" alt="" style="width: 60%; height: auto;">
                         </div>
                         <div class="detail-box">
                             <h5>
+                                <br /><br /><br />
                                 Controlled Inductor Based BCM Buck Converters
                                 <br />
                                 Paper
                             </h5>
-
                             <p>
                                 Ben-Yaakov, Gellman, Eting, and Semidotskih
                                 <br />
@@ -161,16 +175,73 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="box">
+                        <div class="img-box">
+                            <video controls style="width: 80%; height: auto;" id="breakout-video">
+                                <source src="gallery/Black Jack.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="detail-box" onclick="handleBoxClick(event, 'breakout-video', 'https://github.com/irisim/RL-Agent-Playing-BlackJack')">
+                            <h5>
+                                <br /><br /><br />
+                                RL Agent Playing BlackJack <br />
+                            </h5>
+                            <p>
+                                Implement Black Jack Player Using a Q learning table.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <div class="btn-box">
-                <a href="">
+                <a href="service.html">
                     Read More
                 </a>
             </div>
         </div>
     </section>
     <!-- end service section -->
+
+    <script>
+        function handleBoxClick(event, videoId, githubLink) {
+            const video = document.getElementById(videoId);
+
+            if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+                const secondChoice = confirm("The video is already in full screen. Do you want to exit full screen mode?");
+                if (secondChoice) {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.mozCancelFullScreen) { // Firefox
+                        document.mozCancelFullScreen();
+                    } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) { // IE/Edge
+                        document.msExitFullscreen();
+                    }
+                }
+            } else {
+                const userChoice = confirm("Do you want to see the video in full screen? Click 'Cancel' to go to the GitHub link.");
+                if (userChoice) {
+                    if (video.requestFullscreen) {
+                        video.requestFullscreen();
+                    } else if (video.mozRequestFullScreen) { // Firefox
+                        video.mozRequestFullScreen();
+                    } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                        video.webkitRequestFullscreen();
+                    } else if (video.msRequestFullscreen) { // IE/Edge
+                        video.msRequestFullscreen();
+                    }
+                } else {
+                    window.open(githubLink, "_blank");
+                }
+            }
+        }
+    </script>
+
     <!-- info section -->
 
     <section class="info_section layout_padding">
